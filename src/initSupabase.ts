@@ -1,8 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createClient } from "@supabase/supabase-js";
+import secrets from "./secrets";
 
-// Better put your these secret keys in .env file
-export const supabase = createClient("supabaseUrl", "supabaseKey", {
+export const supabase = createClient(secrets.SUPABASE_URL, secrets.SUPABASE_KEY, {
   localStorage: AsyncStorage as any,
   detectSessionInUrl: false // Prevents Supabase from evaluating window.location.href, breaking mobile
 });
